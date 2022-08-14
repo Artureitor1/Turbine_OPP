@@ -1,9 +1,8 @@
 classdef HPC < Component
 
-    properties (Access = public)
-        pi_HPC
+    properties (Access = private)
         eta_HPC
-
+        pi_HPC
     end
     
     methods (Access = public)

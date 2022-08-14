@@ -1,16 +1,16 @@
 classdef TurbineMotor < handle 
 
     properties (Access = public)
-        mDot 
-        F
-
-        Difusor 
-        HPC
-        LPC
-        HPT
-        LPT
-        Chamber
-        Nozzle
+            mDot
+            mfDot
+            F
+            Difusor 
+            HPC
+            LPC
+            HPT
+            LPT
+            Chamber
+            Nozzle
     end 
     methods (Access = public)
         function Init (obj,cParams)
@@ -43,7 +43,8 @@ classdef TurbineMotor < handle
         end
         
         function CalcExitProperties(obj,cParams)
-            obj.mDot = obj.F/((1+obj.Chamber.f)*obj.Nozzle.u9-cParams.u0+(1+obj.Chamber.f)*(287)*(obj.Nozzle.T9/obj.Nozzle.u9)*(1-(cParams.P0/obj.Nozzle.P9)));
+            obj.mDot    = obj.F/((1+obj.Chamber.f)*obj.Nozzle.u9-cParams.u0+(1+obj.Chamber.f)*(287)*(obj.Nozzle.T9/obj.Nozzle.u9)*(1-(cParams.P0/obj.Nozzle.P9)));
+            obj.mfDot   = obj.mDot  * obj.mDot;
         end
     end
 end

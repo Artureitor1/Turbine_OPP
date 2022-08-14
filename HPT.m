@@ -3,6 +3,7 @@ classdef HPT < Component
     properties (Access = public)
         tau_HPT
         pi_HPT
+
     end
 
     properties (Access = protected)

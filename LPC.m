@@ -1,11 +1,11 @@
 classdef LPC < Component
 
-
     properties (Access = public)
+        tau_LPC
+    end
+    properties (Access = private)
         pi_LPC
         eta_LPC
-        tau_LPC
-        
     end
     
     methods (Access = public)

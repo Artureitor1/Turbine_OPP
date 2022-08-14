@@ -17,15 +17,17 @@ classdef Nozzle < Component
        pi_HPT
        pi_LPT
        pi_n
+       delta0
     end
     
     methods (Access = public)
          function InitVar(obj,cParams,Turbina)
-               obj.P0          = cParams.P0;
+               obj.P0           = cParams.P0;
+               obj.delta0       = Turbina.Difusor.delta0;
                obj.InputTemp    = Turbina.LPT.ExitTemp;
                obj.pi_d         = cParams.pi_d;
-               obj.pi_LPC       = Turbina.LPC.pi_LPC;
-               obj.pi_HPC       = Turbina.HPC.pi_HPC;
+               obj.pi_LPC       = cParams.pi_LPC;
+               obj.pi_HPC       = cParams.pi_HPC;
                obj.pi_b         = cParams.pi_b;
                obj.pi_HPT       = Turbina.HPT.pi_HPT;
                obj.pi_LPT       = Turbina.LPT.pi_LPT;
@@ -33,7 +35,7 @@ classdef Nozzle < Component
         end
         function CalcExitVar(obj)
                obj.ExitTemp     = obj.InputTemp;
-               obj.Pt9 = obj.P0*obj.pi_d*obj.pi_LPC*obj.pi_HPC*obj.pi_b*obj.pi_HPT*obj.pi_LPT*obj.pi_n; 
+               obj.Pt9 = obj.P0*obj.delta0*obj.pi_d*obj.pi_LPC*obj.pi_HPC*obj.pi_b*obj.pi_HPT*obj.pi_LPT*obj.pi_n; 
                M9 = sqrt(2/(obj.gammat-1)*((obj.Pt9/obj.P0)^((obj.gammat-1)/obj.gammat)-1));
                if M9 > 1
                     M9 = 1;

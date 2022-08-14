@@ -1,0 +1,29 @@
+
+
+
+cParams.gammat = 1.3;
+cParams.gammac = 1.4;
+
+cParams.h = 43e6;
+cParams.T4 = 1685;
+cParams.H = 11000;
+cParams.T0 = 288.15-0.0065*cParams.H;
+cParams.P0 = 101325*(cParams.T0/288.15)^(5.256);
+
+cParams.pi_n = 0.99;
+cParams.eta_b = 0.99;
+cParams.pi_d = 0.98;
+cParams.eta_LPC = 0.88;
+cParams.eta_HPC = 0.89;
+cParams.eta_LPT = 0.93;
+cParams.eta_HPT = 0.91;
+cParams.pi_b = 0.96;
+cParams.eta_mH = 0.993;
+cParams.eta_mL = 0.997;
+cParams.pi_LPC = 2.42;
+cParams.pi_HPC = 11.3635;
+cParams.F       =  120000;
+
+cParams.M0 = 0.85;
+cParams.u0 = cParams.M0 * sqrt(cParams.gammat *287*cParams.T0)
+cParams.mfDotUnitTest = 2.145472083860767e+04;
